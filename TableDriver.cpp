@@ -34,12 +34,47 @@ int main()
    //DO THIS
    //thoroughly test your table
 
+   ListArrayIterator<CD>* iter = cds->iterator();
+   
+   
+	if(slt->tableIsEmpty())
+	{
+		int count = 0;
+		while(iter->hasNext() && count != 10)
+		{
+		CD* cd = iter->next();
+		slt->tableInsert(cd);
+		count++;
+		}
+	}
 
+	ListDoublyLinkedIterator<CD>* iter2 = slt->iterator();
+	
+	/*while(iter2->hasNext())
+	{
+		CD* myCD = iter2->next();
+		myCD->getKey()->displayString();
+		cout << endl;
+		
+	}*/
 
-
-
-
-
+	String* title = new String("Manifesto");
+	
+	
+	bool rem = slt->tableRemove(title);
+	if (rem)
+		cout << "Removed item" << endl;
+	
+	while(iter2->hasNext())
+	{
+		CD* myCD = iter2->next();
+		myCD->getKey()->displayString();
+		cout << endl;
+	}
+	
+	cout << slt->tableSize() << endl;
+	
+	delete title;
    deleteCDs(cds);
    delete cds;
    delete slt;
