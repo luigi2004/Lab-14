@@ -40,7 +40,7 @@ int main()
 	if(slt->tableIsEmpty())
 	{
 		int count = 0;
-		while(iter->hasNext() && count != 10)
+		while(iter->hasNext())
 		{
 		CD* cd = iter->next();
 		slt->tableInsert(cd);
@@ -63,7 +63,7 @@ int main()
 	
 	bool rem = slt->tableRemove(title);
 	if (rem)
-		cout << "Removed item" << endl;
+		cout << "Removed item" << endl << endl;
 	
 	while(iter2->hasNext())
 	{
@@ -72,6 +72,7 @@ int main()
 		cout << endl;
 	}
 	
+	cout << endl;
 	cout << slt->tableSize() << endl;
 	
 	delete title;
